@@ -1,19 +1,23 @@
 <?php
   function conectar_banco_de_dados() {
-    $servidorOO = "localhost";
-    $usuarioOO = "root";
-    $senhaOO = "";
-    $bando_de_dadosOO = "php";
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "";
+    $bando_de_dados = "php";
 
-    $conexaoOO = new mysqli($servidorOO, $usuarioOO, $senhaOO, $bando_de_dadosOO);
+    $conexao = new mysqli($servidor, $usuario, $senha, $bando_de_dados);
 
-    if ($conexaoOO->connect_error) {
-        die("Ops! Conexão falhou :( " . $conexaoOO->connect_error);
+    if ($conexao->connect_error) {
+      die("Ops! Conexão falhou :( " . $conexao->connect_error);
     }
+
+    //$conexao->set_charset("utf8");
+
+    return $conexao;
   }
 
   // conexão procedural
-
+  /*
   echo "Conexão procedural --- inicio <br>";
 
   $servidor = "localhost";
@@ -44,5 +48,5 @@
 
   echo "Conectado com sucesso! <br>";
   echo "Conexão OO - Orientada a objetos --- fim";
-
+*/
 ?>
